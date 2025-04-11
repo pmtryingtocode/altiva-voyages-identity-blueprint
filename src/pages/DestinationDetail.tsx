@@ -1,7 +1,6 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Utensils, Landmark, Spa } from "lucide-react";
+import { MapPin, Utensils, Landmark, Sparkles } from "lucide-react";
 
 const destinations = {
   portugal: {
@@ -46,7 +45,7 @@ const destinations = {
         link: "/experiences/portugal-artistic-legacy"
       },
       {
-        icon: <Spa className="h-5 w-5" />,
+        icon: <Sparkles className="h-5 w-5" />,
         category: "Well-being",
         title: "Coastal Retreats",
         description: "Restore mind and body at exclusive seaside retreats, combining Portugal's healing thermal traditions with contemporary wellness approaches.",
@@ -101,7 +100,7 @@ const destinations = {
         link: "/experiences/france-artistic-treasures"
       },
       {
-        icon: <Spa className="h-5 w-5" />,
+        icon: <Sparkles className="h-5 w-5" />,
         category: "Well-being",
         title: "Château Retreats",
         description: "Restore mind and body at exclusive château spas, combining France's historic thermal traditions with cutting-edge wellness approaches.",
@@ -156,7 +155,7 @@ const destinations = {
         link: "/experiences/italy-artistic-heritage"
       },
       {
-        icon: <Spa className="h-5 w-5" />,
+        icon: <Sparkles className="h-5 w-5" />,
         category: "Well-being",
         title: "Lakeside Retreats",
         description: "Restore mind and body at exclusive lakeside and thermal spas, combining Italy's ancient wellness traditions with modern approaches.",
