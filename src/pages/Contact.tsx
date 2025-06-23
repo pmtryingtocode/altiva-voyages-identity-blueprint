@@ -13,7 +13,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { MapPin, Phone, Mail, Calendar, Users, Heart, Zap, Leaf } from "lucide-react";
+import { MapPin, Phone, Mail, Calendar, Users, Heart, Leaf, Mountain, Compass } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,27 +22,27 @@ const Contact = () => {
     phone: "",
     travelDates: "",
     groupSize: "",
-    currentFeeling: "",
-    goals: "",
+    currentMood: "",
+    interests: "",
     message: "",
   });
 
-  const feelings = [
-    { value: "stressed", label: "Overwhelmed & Stressed", icon: <Zap className="h-4 w-4" /> },
-    { value: "disconnected", label: "Disconnected from Nature", icon: <Leaf className="h-4 w-4" /> },
-    { value: "burnt-out", label: "Burnt Out & Fatigued", icon: <Heart className="h-4 w-4" /> },
-    { value: "seeking-purpose", label: "Seeking Purpose", icon: <MapPin className="h-4 w-4" /> }
+  const moods = [
+    { value: "renewal", label: "Preciso de Renovação", icon: <Leaf className="h-4 w-4" /> },
+    { value: "adventure", label: "Quero Aventura Ativa", icon: <Mountain className="h-4 w-4" /> },
+    { value: "connection", label: "Busco Conexão Autêntica", icon: <Heart className="h-4 w-4" /> },
+    { value: "discovery", label: "Desejo Descobrir", icon: <Compass className="h-4 w-4" /> }
   ];
 
-  const wellnessGoals = [
-    "Stress reduction & nervous system reset",
-    "Physical fitness & movement",
-    "Mental clarity & focus",
-    "Spiritual connection & meaning",
-    "Digital detox & mindfulness",
-    "Recovery from burnout",
-    "Relationship with nature",
-    "Energy & vitality restoration"
+  const interests = [
+    "Wellness & Spa",
+    "Movimento & Aventura",
+    "Gastronomia Local",
+    "História & Arquitetura",
+    "Vinhos & Vinhas",
+    "Práticas Espirituais",
+    "Arte & Cultura",
+    "Natureza & Paisagens"
   ];
 
   const handleChange = (
@@ -58,8 +58,8 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Wellness journey inquiry:", formData);
-    toast.success("Thank you for your inquiry. Our wellness team will be in touch within 24 hours.", {
+    console.log("Consulta de viagem:", formData);
+    toast.success("Obrigado pela sua consulta. A nossa equipa entrará em contacto em 24 horas.", {
       duration: 5000,
     });
     // Reset form after submission
@@ -69,8 +69,8 @@ const Contact = () => {
       phone: "",
       travelDates: "",
       groupSize: "",
-      currentFeeling: "",
-      goals: "",
+      currentMood: "",
+      interests: "",
       message: "",
     });
   };
@@ -78,20 +78,20 @@ const Contact = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-emerald-50 to-stone-50">
+      <section className="relative py-24 bg-gradient-to-r from-sage-50 to-stone-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-serif text-5xl md:text-6xl text-emerald-800 mb-6 leading-tight">
-              Plan Your Wellness Journey
+            <h1 className="font-serif text-5xl md:text-6xl text-sage-800 mb-6 leading-tight">
+              Desenhe a Sua Jornada
             </h1>
             <p className="text-xl text-stone-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              Tell us about your wellness needs and aspirations. 
-              We'll curate a transformative experience that honors where you are and guides you where you want to be.
+              Conte-nos sobre os seus desejos e aspirações de viagem. 
+              Criamos uma experiência transformadora que honra onde está e o guia para onde quer estar.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Badge variant="outline" className="border-emerald-200 text-emerald-700">Individual Journeys</Badge>
-              <Badge variant="outline" className="border-emerald-200 text-emerald-700">Group Retreats</Badge>
-              <Badge variant="outline" className="border-emerald-200 text-emerald-700">Corporate Wellness</Badge>
+              <Badge variant="outline" className="border-sage-200 text-sage-700">Jornadas Individuais</Badge>
+              <Badge variant="outline" className="border-sage-200 text-sage-700">Retreats de Grupo</Badge>
+              <Badge variant="outline" className="border-sage-200 text-sage-700">Experiências Corporativas</Badge>
             </div>
           </div>
         </div>
@@ -104,8 +104,8 @@ const Contact = () => {
           <div className="lg:col-span-2">
             <Card className="shadow-lg">
               <CardContent className="p-8">
-                <h2 className="font-serif text-3xl text-emerald-800 mb-6">
-                  Start Your Transformation
+                <h2 className="font-serif text-3xl text-sage-800 mb-6">
+                  Comece a Sua Transformação
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -116,7 +116,7 @@ const Contact = () => {
                         htmlFor="name" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        Full Name *
+                        Nome Completo *
                       </label>
                       <Input
                         id="name"
@@ -124,7 +124,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="border-stone-300 focus-visible:ring-emerald-500"
+                        className="border-stone-300 focus-visible:ring-sage-500"
                       />
                     </div>
                     <div>
@@ -132,7 +132,7 @@ const Contact = () => {
                         htmlFor="email" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        Email Address *
+                        Email *
                       </label>
                       <Input
                         id="email"
@@ -141,7 +141,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="border-stone-300 focus-visible:ring-emerald-500"
+                        className="border-stone-300 focus-visible:ring-sage-500"
                       />
                     </div>
                   </div>
@@ -152,14 +152,14 @@ const Contact = () => {
                         htmlFor="phone" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        Phone Number
+                        Telefone
                       </label>
                       <Input
                         id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="border-stone-300 focus-visible:ring-emerald-500"
+                        className="border-stone-300 focus-visible:ring-sage-500"
                       />
                     </div>
                     <div>
@@ -167,15 +167,15 @@ const Contact = () => {
                         htmlFor="travelDates" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        Preferred Travel Dates
+                        Datas Preferenciais
                       </label>
                       <Input
                         id="travelDates"
                         name="travelDates"
-                        placeholder="e.g., March 2024 or flexible"
+                        placeholder="ex: Março 2024 ou flexível"
                         value={formData.travelDates}
                         onChange={handleChange}
-                        className="border-stone-300 focus-visible:ring-emerald-500"
+                        className="border-stone-300 focus-visible:ring-sage-500"
                       />
                     </div>
                   </div>
@@ -187,37 +187,37 @@ const Contact = () => {
                         htmlFor="groupSize" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        Group Size
+                        Tamanho do Grupo
                       </label>
                       <Select onValueChange={handleSelectChange("groupSize")} value={formData.groupSize}>
-                        <SelectTrigger className="border-stone-300 focus:ring-emerald-500">
-                          <SelectValue placeholder="Select group size" />
+                        <SelectTrigger className="border-stone-300 focus:ring-sage-500">
+                          <SelectValue placeholder="Selecione o tamanho" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="solo">Solo Journey</SelectItem>
-                          <SelectItem value="couple">Couple (2 people)</SelectItem>
-                          <SelectItem value="small-group">Small Group (3-6 people)</SelectItem>
-                          <SelectItem value="corporate">Corporate Group (7+ people)</SelectItem>
+                          <SelectItem value="solo">Jornada Solo</SelectItem>
+                          <SelectItem value="couple">Casal (2 pessoas)</SelectItem>
+                          <SelectItem value="small-group">Grupo Pequeno (3-6 pessoas)</SelectItem>
+                          <SelectItem value="corporate">Grupo Corporativo (7+ pessoas)</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
                       <label 
-                        htmlFor="currentFeeling" 
+                        htmlFor="currentMood" 
                         className="block text-sm font-medium text-stone-700 mb-2"
                       >
-                        How are you feeling right now?
+                        Como se sente neste momento?
                       </label>
-                      <Select onValueChange={handleSelectChange("currentFeeling")} value={formData.currentFeeling}>
-                        <SelectTrigger className="border-stone-300 focus:ring-emerald-500">
-                          <SelectValue placeholder="Select your current state" />
+                      <Select onValueChange={handleSelectChange("currentMood")} value={formData.currentMood}>
+                        <SelectTrigger className="border-stone-300 focus:ring-sage-500">
+                          <SelectValue placeholder="Selecione o seu estado atual" />
                         </SelectTrigger>
                         <SelectContent>
-                          {feelings.map((feeling) => (
-                            <SelectItem key={feeling.value} value={feeling.value}>
+                          {moods.map((mood) => (
+                            <SelectItem key={mood.value} value={mood.value}>
                               <div className="flex items-center space-x-2">
-                                {feeling.icon}
-                                <span>{feeling.label}</span>
+                                {mood.icon}
+                                <span>{mood.label}</span>
                               </div>
                             </SelectItem>
                           ))}
@@ -226,27 +226,27 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Wellness Goals */}
+                  {/* Interests */}
                   <div>
                     <label 
-                      htmlFor="goals" 
+                      htmlFor="interests" 
                       className="block text-sm font-medium text-stone-700 mb-3"
                     >
-                      What are your wellness goals?
+                      Que experiências mais o atraem?
                     </label>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                      {wellnessGoals.map((goal, index) => (
+                      {interests.map((interest, index) => (
                         <div key={index} className="flex items-center space-x-2">
                           <input 
                             type="checkbox" 
-                            id={`goal-${index}`}
-                            className="rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+                            id={`interest-${index}`}
+                            className="rounded border-stone-300 text-sage-600 focus:ring-sage-500"
                           />
                           <label 
-                            htmlFor={`goal-${index}`}
+                            htmlFor={`interest-${index}`}
                             className="text-sm text-stone-600 cursor-pointer"
                           >
-                            {goal}
+                            {interest}
                           </label>
                         </div>
                       ))}
@@ -259,7 +259,7 @@ const Contact = () => {
                       htmlFor="message" 
                       className="block text-sm font-medium text-stone-700 mb-2"
                     >
-                      Tell us about your wellness journey
+                      Conte-nos sobre a sua jornada ideal
                     </label>
                     <Textarea
                       id="message"
@@ -267,22 +267,22 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      placeholder="Share any specific needs, preferences, or questions about your wellness journey..."
-                      className="border-stone-300 focus-visible:ring-emerald-500 resize-none"
+                      placeholder="Partilhe qualquer necessidade específica, preferências ou questões sobre a sua jornada de bem-estar..."
+                      className="border-stone-300 focus-visible:ring-sage-500 resize-none"
                     />
                   </div>
 
                   <Button 
                     type="submit"
                     size="lg"
-                    className="w-full bg-emerald-700 hover:bg-emerald-800 text-white"
+                    className="w-full bg-sage-700 hover:bg-sage-800 text-white"
                   >
-                    Begin My Wellness Journey
+                    Comece a Minha Jornada
                   </Button>
 
                   <p className="text-center text-xs text-stone-500">
-                    By submitting this form, you agree to our privacy policy. 
-                    We'll respond within 24 hours with a personalized consultation.
+                    Ao submeter este formulário, concorda com a nossa política de privacidade. 
+                    Responderemos em 24 horas com uma consulta personalizada.
                   </p>
                 </form>
               </CardContent>
@@ -295,32 +295,32 @@ const Contact = () => {
             {/* Contact Details */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-serif text-xl text-emerald-800 mb-4">
-                  Get in Touch
+                <h3 className="font-serif text-xl text-sage-800 mb-4">
+                  Entre em Contacto
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-emerald-600 mt-1" />
+                    <MapPin className="h-5 w-5 text-sage-600 mt-1" />
                     <div>
-                      <p className="font-medium text-stone-800">Portugal Office</p>
+                      <p className="font-medium text-stone-800">Escritório Lisboa</p>
                       <p className="text-sm text-stone-600">Quinta da Regaleira, Sintra</p>
                       <p className="text-sm text-stone-600">2710-567 Sintra, Portugal</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Phone className="h-5 w-5 text-emerald-600 mt-1" />
+                    <Phone className="h-5 w-5 text-sage-600 mt-1" />
                     <div>
-                      <p className="font-medium text-stone-800">Phone</p>
+                      <p className="font-medium text-stone-800">Telefone</p>
                       <p className="text-sm text-stone-600">+351 123 456 789</p>
-                      <p className="text-sm text-stone-600">Available 9AM-6PM CET</p>
+                      <p className="text-sm text-stone-600">Disponível 9h-18h CET</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Mail className="h-5 w-5 text-emerald-600 mt-1" />
+                    <Mail className="h-5 w-5 text-sage-600 mt-1" />
                     <div>
                       <p className="font-medium text-stone-800">Email</p>
-                      <p className="text-sm text-stone-600">hello@altivawellness.com</p>
-                      <p className="text-sm text-stone-600">Response within 24 hours</p>
+                      <p className="text-sm text-stone-600">hello@altivavoyages.com</p>
+                      <p className="text-sm text-stone-600">Resposta em 24 horas</p>
                     </div>
                   </div>
                 </div>
@@ -330,30 +330,30 @@ const Contact = () => {
             {/* Quick Actions */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-serif text-xl text-emerald-800 mb-4">
-                  Quick Actions
+                <h3 className="font-serif text-xl text-sage-800 mb-4">
+                  Ações Rápidas
                 </h3>
                 <div className="space-y-3">
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-emerald-200 text-emerald-700 hover:bg-emerald-50"
+                    className="w-full justify-start border-sage-200 text-sage-700 hover:bg-sage-50"
                   >
                     <Calendar className="h-4 w-4 mr-2" />
-                    Schedule a Call
+                    Agendar Chamada
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-emerald-200 text-emerald-700 hover:bg-emerald-50"
+                    className="w-full justify-start border-sage-200 text-sage-700 hover:bg-sage-50"
                   >
                     <Users className="h-4 w-4 mr-2" />
-                    Group Inquiry
+                    Consulta de Grupo
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="w-full justify-start border-emerald-200 text-emerald-700 hover:bg-emerald-50"
+                    className="w-full justify-start border-sage-200 text-sage-700 hover:bg-sage-50"
                   >
                     <Heart className="h-4 w-4 mr-2" />
-                    Wellness Assessment
+                    Avaliação de Bem-estar
                   </Button>
                 </div>
               </CardContent>
@@ -362,21 +362,21 @@ const Contact = () => {
             {/* FAQ Preview */}
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-serif text-xl text-emerald-800 mb-4">
-                  Quick Answers
+                <h3 className="font-serif text-xl text-sage-800 mb-4">
+                  Perguntas Frequentes
                 </h3>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <p className="font-medium text-stone-800 mb-1">How long are the retreats?</p>
-                    <p className="text-stone-600">3-10 days, customized to your needs</p>
+                    <p className="font-medium text-stone-800 mb-1">Qual a duração das experiências?</p>
+                    <p className="text-stone-600">3-10 dias, personalizados às suas necessidades</p>
                   </div>
                   <div>
-                    <p className="font-medium text-stone-800 mb-1">What's included?</p>
-                    <p className="text-stone-600">Accommodation, meals, activities, and wellness guidance</p>
+                    <p className="font-medium text-stone-800 mb-1">O que está incluído?</p>
+                    <p className="text-stone-600">Alojamento, refeições, atividades e orientação de bem-estar</p>
                   </div>
                   <div>
-                    <p className="font-medium text-stone-800 mb-1">Fitness level required?</p>
-                    <p className="text-stone-600">All levels welcome - we adapt to you</p>
+                    <p className="font-medium text-stone-800 mb-1">Nível de fitness necessário?</p>
+                    <p className="text-stone-600">Todos os níveis são bem-vindos - adaptamo-nos a si</p>
                   </div>
                 </div>
               </CardContent>
