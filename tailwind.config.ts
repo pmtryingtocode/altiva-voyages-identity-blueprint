@@ -63,31 +63,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Altiva Voyages custom colors
-				altiva: {
-					purple: {
-						DEFAULT: '#9b87f5',
-						secondary: '#7E69AB',
-						tertiary: '#6E59A5',
-						dark: '#1A1F2C',
-						light: '#D6BCFA',
-						soft: '#E5DEFF',
-					},
-					peach: '#FDE1D3',
-					gray: {
-						soft: '#F1F0FB',
-						cool: '#aaadb0',
-						neutral: '#8E9196',
-						dark: '#221F26',
-						medium: '#8A898C',
-						silver: '#9F9EA1',
-						light: '#C8C8C9',
-					},
-				},
 			},
 			fontFamily: {
-				'playfair': ['"Playfair Display"', 'serif'],
-				'montserrat': ['Montserrat', 'sans-serif'],
+				'serif': ['Cormorant Garamond', 'serif'],
+				'sans': ['Work Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -112,14 +91,19 @@ export default {
 					}
 				},
 				'fade-in': {
-					'0%': { opacity: '0' },
-					'100%': { opacity: '1' }
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'parallax': {
+					'0%': { transform: 'translateY(0px)' },
+					'100%': { transform: 'translateY(-50px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 1.5s ease-out'
+				'fade-in': 'fade-in 1.5s ease-out',
+				'parallax': 'parallax 20s ease-in-out infinite alternate'
 			}
 		}
 	},
