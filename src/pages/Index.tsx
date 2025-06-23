@@ -140,7 +140,10 @@ const Index = () => {
                           <Button size="lg" className="bg-white text-emerald-800 hover:bg-stone-100">
                             Active Escapes for Total Renewal
                           </Button>
-                          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                          <Button 
+                            size="lg" 
+                            className="bg-emerald-800/80 text-white border-2 border-white/50 hover:bg-emerald-700 hover:border-white backdrop-blur-sm"
+                          >
                             <Play className="h-4 w-4 mr-2" />
                             Our Story
                           </Button>
