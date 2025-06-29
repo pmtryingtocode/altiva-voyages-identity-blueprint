@@ -1,6 +1,7 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Utensils, Landmark, Sparkles } from "lucide-react";
+import { Utensils, Landmark, Spa } from "lucide-react";
 
 type ExperienceCategory = {
   id: number;
@@ -90,7 +91,7 @@ const categories: ExperienceCategory[] = [
   {
     id: 3,
     title: "Well-being",
-    icon: <Sparkles className="h-6 w-6" />,
+    icon: <Spa className="h-6 w-6" />,
     description: "Restore mind and body through exclusive retreats combining Europe's historic wellness traditions with contemporary approaches in settings of exceptional natural beauty.",
     slug: "wellbeing",
     experiences: [
